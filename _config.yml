@@ -4,3 +4,4 @@ search_enabled: true
 show_downloads: false
 plugins:
   - jemoji
+markdown: maruku
