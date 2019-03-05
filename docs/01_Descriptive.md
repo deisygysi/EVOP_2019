@@ -17,7 +17,7 @@ nav_order: 2
 
 ---
 
-$$3^{rd}$$ day
+\(3^{rd} day\)
 
 
 ## Frequency Tables
