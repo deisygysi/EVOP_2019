@@ -13,7 +13,7 @@ The goal of this module is to introduce basic concepts of statistics and how to 
 
 In the end, the statistical analysis should be able to tell us something concrete about the sample that we are studying and allow us to make inferences towards a population.
 
-![](Material_BD_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
+![](figure-html/unnamed-chunk-1-1.png)<!-- -->
 
 Statistics is normally divided into two main methods:
 *Descriptive statistics* and *Inferential statistics*.
