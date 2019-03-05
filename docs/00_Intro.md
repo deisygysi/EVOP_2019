@@ -27,15 +27,15 @@ The variables can be classified into two main groups:
 
 1. **Qualitative** or **Categorical**
   - i. **Nominal** (There are no order for the labels)
-    - i.e. Country, Gender, Brand of preference, Sides of a coin.
+      - i.e. Country, Gender, Brand of preference, Sides of a coin.
   - ii. **Ordinal** (There are an order on the labels)
-    - i.e. Degree, State of a disease.
+      - i.e. Degree, State of a disease.
 
 2. **Quantitative** or **Numerical**
   - i. **Discrete** (Countable)
-    -  i.e. The number of kids, Number of births/deaths.
+      -  i.e. The number of kids, Number of births/deaths.
   - ii. **Continuous**
-    - i.e. Temperature, Age.
+      - i.e. Temperature, Age.
 
 In this course, we will use as an example, the data from GSE$5388$, a data set containing data from patients with Bipolar Disorder. In our data-set we have some phenotype data, and the log transform of the gene expression of some genes.
 
