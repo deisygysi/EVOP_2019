@@ -2185,7 +2185,7 @@ In the case where at least one mean differs from the other(s), How do we know wh
 One option is to use the **Tukey's Method** to test all possible pairwise differences of means to determine if at least one difference is significantly different from 0;
 On R the function is ``TukeyHSD(aov())``.
 
-Another option is **Scheffé's Method** to test all possible contrasts at the same time, to see if at least one is significantly different from 0;
+Another option is **ScheffÃ©'s Method** to test all possible contrasts at the same time, to see if at least one is significantly different from 0;
 On R, ``scheffe.test(aov, "treatment")``.
 
 Another option is **Duncan**. It is much more conservative, and more powerful than the other, but it doesn't control the error rate correctly;
