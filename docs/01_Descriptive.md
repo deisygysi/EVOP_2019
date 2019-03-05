@@ -618,13 +618,10 @@ Mode = function(VAR){
 Mode(data$Age_onset)
 ```
 
-<div class="kable-table">
-
-     Value    Frequency
----  ------  ----------
-25   25               3
-
-</div>
+```
+##   Value    Frequency
+##   25               3
+```
 
 **Interpretation**: The most common age where people were diagnosed with bipolar disorder was 25 years.
 
