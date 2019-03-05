@@ -544,7 +544,7 @@ rowMeans(data[,17:28], na.rm = T)
 ## 1.851342 2.051429 1.809602 1.921640 1.897267
 ```
 
-#### Median
+### Median
 It is the value that divides your dataset in the **middle**, the function`median()` computes it in R.
 
 
