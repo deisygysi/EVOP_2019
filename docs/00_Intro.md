@@ -26,12 +26,14 @@ Before we can understand **what** the data is revealing us, we have to be able t
 The variables can be classified into two main groups:
 
 1. **Qualitative** or **Categorical**
+
     i. **Nominal** (There are no order for the labels)
         + i.e.. Country, Gender, Brand of preference, Sides of a coin.
     ii. **Ordinal** (There are an order on the labels)
         + i.e.. Degree, State of a disease.
 
 2. **Quantitative** or **Numerical**
+
     i. **Discrete** (Countable)
         + i.e.. The number of kids, Number of births/deaths.
     ii. **Continuous**
@@ -46,17 +48,6 @@ data = read.csv("Course_2019/Pheno_DE.csv", header = T, row.names = 1)
 data[1:5,1:10]
 ```
 
-<div class="kable-table">
-
-X            Age_death   Age_onset   Alcohol_abuse   Brain_ph  Status              Drug_abuse   Duration_illness  Therapy_Electroconvulsive    Therapy_Fluphenazine
-----------  ----------  ----------  --------------  ---------  -----------------  -----------  -----------------  --------------------------  ---------------------
-GSM123182           41          21               4       6.60  Bipolar disorder            NA                 20  No                                           4000
-GSM123183           51          23               3       6.67  Bipolar disorder            NA                 28  No                                           1200
-GSM123184           29          17               5       6.70  Bipolar disorder            NA                 12  No                                              0
-GSM123185           45          16               5       6.03  Bipolar disorder            NA                 29  No                                          20000
-GSM123186           45          35              NA       6.35  Bipolar disorder            NA                 10  No                                          10000
-
-</div>
 
 ```r
 names(data)
