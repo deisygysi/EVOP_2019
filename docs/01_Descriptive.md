@@ -110,7 +110,7 @@ table(data$Gender, data$Status) %>%
           las = 1)
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![](figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 
 ## Central tendency measures
@@ -267,7 +267,7 @@ boxplot(data$Age_onset,
         col = 'salmon')
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](figure-html/unnamed-chunk-9-1.png)<!-- -->
 
 If we are interested in the summary **by** condition, we can use the function `by()`.
 
@@ -484,7 +484,7 @@ boxplot(data$Age_death ~ data$Status,
         col = c('salmon', 'turquoise'))
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![](figure-html/unnamed-chunk-11-1.png)<!-- -->
 
 
 ### Mean
@@ -592,7 +592,7 @@ legend("topright",
        bty = "n")
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
+![](figure-html/unnamed-chunk-16-1.png)<!-- -->
 
 ### Mode
 
@@ -672,7 +672,7 @@ boxplot(data$Age_death ,
         las = 2)
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-21-1.png)<!-- -->
+![](figure-html/unnamed-chunk-21-1.png)<!-- -->
 
 ```r
 quantile(data$Age_death)
