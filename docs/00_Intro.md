@@ -37,9 +37,9 @@ The variables can be classified into two main groups:
 
 1. **Qualitative** or **Categorical**
     - i. **Nominal** (There are no order for the labels)
-          + i.e. Country, Gender, Brand of preference, Sides of a coin.
+          - i.e. Country, Gender, Brand of preference, Sides of a coin.
     - ii. **Ordinal** (There are an order on the labels)
-          + i.e. Degree, State of a disease.
+          - i.e. Degree, State of a disease.
 
 2. **Quantitative** or **Numerical**
   - i. **Discrete** (Countable)
