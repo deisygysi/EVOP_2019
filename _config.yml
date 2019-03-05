@@ -18,16 +18,9 @@ description: "A short course of statistics using R"
 baseurl: "./" # the subpath of your site, e.g. /blog
 url: "https://deisygysi.github.io/EVOP_2019" # the base hostname & protocol for your site, e.g. http://example.com
 
-permalink: pretty
-exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"]
-
-# Enable or disable the site search
-search_enabled: true
-
-# Aux links for the upper right navigation
 aux_links:
   "Basic Statistics: probability and inference using R:
-    - "//github.com/pmarsceill/just-the-docs"
+    - "https://deisygysi.github.io/EVOP_2019/"
 
 # Color scheme currently only supports "dark" or nil (default)
 color_scheme: nil
