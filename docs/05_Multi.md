@@ -4,7 +4,7 @@ title: Multivariate Analysis
 nav_order: 2
 ---
 
-# Association
+# Multivariate Analysis
 {: .no_toc }
 
 
