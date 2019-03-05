@@ -21,10 +21,3 @@ url: "https://deisygysi.github.io/EVOP_2019" # the base hostname & protocol for 
 aux_links:
   "Basic Statistics: probability and inference using R:
     - "https://deisygysi.github.io/EVOP_2019/"
-
-# Color scheme currently only supports "dark" or nil (default)
-color_scheme: nil
-
-# Google Analytics Tracking (optional)
-# e.g, UA-1234567-89
-# ga_tracking: UA-2709176-10
