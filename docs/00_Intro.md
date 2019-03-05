@@ -88,5 +88,5 @@ names(data)
 ## [47] "XIST"
 ```
 
-### Exercise
+## Exercise
 1. Define the type of each variable in our data set. 
