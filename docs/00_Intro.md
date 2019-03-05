@@ -41,7 +41,7 @@ In this course, we will use as an example, the data from GSE$5388$, a data set c
 
 
 ```r
-data = read.csv("Course_2019/Pheno_DE.csv", header = T, row.names = 1)
+data = read.csv("./Pheno_DE.csv", header = T, row.names = 1)
 
 data[1:5,1:10]
 ```
