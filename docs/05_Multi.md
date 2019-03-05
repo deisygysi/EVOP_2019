@@ -1,15 +1,12 @@
 ---
 layout: default
-title: Configuration
+title: Multivariate Analysis
 nav_order: 2
 ---
 
-# Configuration
+# Association
 {: .no_toc }
 
-
-Just the Docs has some specific configuration parameters that can be defined in your Jekyll site's _config.yml file.
-{: .fs-6 .fw-300 }
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -19,54 +16,68 @@ Just the Docs has some specific configuration parameters that can be defined in 
 
 ---
 
+The multivariate analysis aims to reduce the dimensionality of datasets with more than one response variable.
 
-View this site's [_config.yml](https://github.com/pmarsceill/just-the-docs/tree/master/_config.yml) file as an example.
+## Principal Component Analysis (PCA)
+Principal component analysis (PCA) is a statistical procedure that transforms a set of possibly correlated variables into a set of values of linearly uncorrelated variables, the principal components (PC). The number of PC is less or equal to the number of variables. The first PC has the largest variance and it decreases.
 
-## Search enabled
+PCA is sensible to the scale of variables. So it needs to normalize the data before running it.
 
-```yaml
-# Enable or disable the site search
-search_enabled: true
+The PCA can be called on R using the functions: `prcomp()` and `princomp()`.
+
+* Example. Using only the genes in our dataset, let's see if there is any cluster. Later, plot it and colour by gender and disorder.
+
+
+```r
+pca = prcomp(t(data[,-c(1:16)]), scale. = T, center = T)
+plot(pca)
 ```
 
-## Aux links
+![](Material_BD_files/figure-html/unnamed-chunk-68-1.png)<!-- -->
 
-```yaml
-# Aux links for the upper right navigation
-aux_links:
-    "Just the Docs on GitHub":
-      - "//github.com/pmarsceill/just-the-docs"
+```r
+plot(pca$rotation, col = c('red', 'blue')[unclass(data$Status)], pch = 16, las = 1)
+legend('bottomleft', 
+       levels(data$Status), 
+       col = c('red', 'blue'), 
+       pch = 16, 
+       bty = 'n')
 ```
 
-## Color scheme
+![](Material_BD_files/figure-html/unnamed-chunk-68-2.png)<!-- -->
 
-```yaml
-# Color scheme currently only supports "dark" or nil (default)
-color_scheme: "dark"
+```r
+plot(pca$rotation, col = c('red', 'blue')[unclass(data$Status)], pch = c(4, 16)[unclass(data$Gender)], las = 1)
+
+legend('bottomleft', 
+       c(levels(data$Status), levels(data$Gender)), 
+       col = c('red', 'blue', 'black', 'black'), 
+       pch = c(15,15,4,16), 
+       bty = 'n')
 ```
-<button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
 
-<script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode')
-const cssFile = document.querySelector('[rel="stylesheet"]')
-const originalCssRef = cssFile.getAttribute('href')
-const darkModeCssRef = originalCssRef.replace('just-the-docs.css', 'dark-mode-preview.css')
+![](Material_BD_files/figure-html/unnamed-chunk-68-3.png)<!-- -->
 
-addEvent(toggleDarkMode, 'click', function(){
-  if (cssFile.getAttribute('href') === originalCssRef) {
-    cssFile.setAttribute('href', darkModeCssRef)
-  } else {
-    cssFile.setAttribute('href', originalCssRef)
-  }
-})
-</script>
-
-See [Customization]({{ site.baseurl }}{% link docs/customization.md %}) for more information.
-
-## Google Analytics
-
-```yaml
-# Google Analytics Tracking (optional)
-# e.g, UA-1234567-89
-ga_tracking: UA-5555555-55
+```r
+require(scatterplot3d)
 ```
+
+```
+## Loading required package: scatterplot3d
+```
+
+```r
+scatterplot3d::scatterplot3d(pca$rotation[,1], 
+                             pca$rotation[,3],
+                             pca$rotation[,2],
+                             xlab = 'PCA1', 
+                             ylab = 'PCA3', 
+                             zlab = 'PCA2', 
+                             las = 1, 
+                             color = c('red', 'blue')[unclass(data$Status)], 
+                             pch = c(4, 16)[unclass(data$Gender)] )
+```
+
+![](Material_BD_files/figure-html/unnamed-chunk-68-4.png)<!-- -->
+
+
