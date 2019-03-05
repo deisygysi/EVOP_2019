@@ -2,6 +2,7 @@
 layout: default
 title: Descriptive Statistics
 nav_order: 2
+mathjax: true
 ---
 
 
