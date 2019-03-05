@@ -36,7 +36,7 @@ plot(data$SOX9, data$EFEMP1,
      las = 1)
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-56-1.png)<!-- -->
+![](figure-html/unnamed-chunk-56-1.png)<!-- -->
 
 ```r
 cor(data$SOX9, data$EFEMP1)
@@ -84,7 +84,7 @@ plot(data$GJA1, data$DUSP4,
      pch = 16)
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-57-1.png)<!-- -->
+![](figure-html/unnamed-chunk-57-1.png)<!-- -->
 
 **Interpretation**: The Spearman correlation between the genes GJA1 and DUSP4 is `-0.1555791`, it means that the correlation is really small.
 
@@ -221,7 +221,7 @@ boxplot(data$SOX9 ~ data$Alcohol_abuse,
         ylab = "SOX9", las = 1)
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-61-1.png)<!-- -->
+![](figure-html/unnamed-chunk-61-1.png)<!-- -->
 
 ### Diagnostic Plots
 **We have to check if our model is well adjusted to our data.**
@@ -239,7 +239,7 @@ layout(matrix(c(1,2,3,4),2,2)) # optional layout
 plot(fit1, pch = 16, las = 1) # diagnostic plots
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-62-1.png)<!-- -->
+![](figure-html/unnamed-chunk-62-1.png)<!-- -->
 
 1. What is the hypothesis?
     * $H_0: \mu_{alchool = 0} = \mu_{alchool = 1} = ... = \mu_{alchool = 5}$
@@ -299,7 +299,7 @@ TukeyHSD(fit1)
 plot(TukeyHSD(fit1), las=1)
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-63-1.png)<!-- -->
+![](figure-html/unnamed-chunk-63-1.png)<!-- -->
 
 ## Non-parametric ANOVA
 ### Kruskall Wallis
@@ -339,7 +339,7 @@ boxplot(data$SST~data$Status, las = 1,
         col = c('coral','turquoise'))
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-64-1.png)<!-- -->
+![](figure-html/unnamed-chunk-64-1.png)<!-- -->
 
 ### Friedmann
 It is a one-way ANOVA, an extension of the Wilcoxon test. It is used for **dependent samples**. You must have complete cases, it means, all groups have to have the same size.
@@ -383,7 +383,7 @@ cor(data$Post_morten_interval, data$CLDN10)
 plot(data$Post_morten_interval, data$CLDN10, pch = 20)
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-65-1.png)<!-- -->
+![](figure-html/unnamed-chunk-65-1.png)<!-- -->
 
 
 ```r
@@ -475,7 +475,7 @@ par(mfrow = c(2,2))
 plot(mod, which = c(1:4), add.smooth = FALSE, pch=20, las = 1)
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-67-1.png)<!-- -->
+![](figure-html/unnamed-chunk-67-1.png)<!-- -->
 
 
 $\beta_0$ - It is the value predicted for the null effect of the CLDN10 gene expression, in this case, this value is 2.11. It means that, on average, the mean expression of CLDN10 is 2.11, when the post-Morten interval is 0.

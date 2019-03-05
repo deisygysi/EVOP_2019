@@ -92,7 +92,7 @@ hist(normal,
      xlab = "Normal Variable")
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-44-1.png)<!-- -->
+![](## figure-html/unnamed-chunk-44-1.png)<!-- -->
 
 ```r
 mean(normal)
@@ -140,7 +140,7 @@ arrows(c(1:100),CIs$CI.lower,c(1:100),CIs$CI.upper,code=3,length=0.2,angle=90,co
 abline(h=mean(normal), lwd= 2, lty=2, col= "purple")
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-46-1.png)<!-- -->
+![](## figure-html/unnamed-chunk-46-1.png)<!-- -->
 
 ### Testing normality
 Tests for normality are mainly used to check if a particular **variable follows a Normal distribution**. It is useful mainly because the **parametric tests require normality**.
@@ -180,7 +180,7 @@ qqline(data$Age_death, col = 2)
 boxplot(data$Age_death)
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-48-1.png)<!-- -->
+![](## figure-html/unnamed-chunk-48-1.png)<!-- -->
 
 1. What is the hypothesis?
     * $H_0$: The Age follows a Normal distribution

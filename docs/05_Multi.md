@@ -33,7 +33,7 @@ pca = prcomp(t(data[,-c(1:16)]), scale. = T, center = T)
 plot(pca)
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-68-1.png)<!-- -->
+![](figure-html/unnamed-chunk-68-1.png)<!-- -->
 
 ```r
 plot(pca$rotation, col = c('red', 'blue')[unclass(data$Status)], pch = 16, las = 1)
@@ -44,7 +44,7 @@ legend('bottomleft',
        bty = 'n')
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-68-2.png)<!-- -->
+![](figure-html/unnamed-chunk-68-2.png)<!-- -->
 
 ```r
 plot(pca$rotation, col = c('red', 'blue')[unclass(data$Status)], pch = c(4, 16)[unclass(data$Gender)], las = 1)
@@ -56,7 +56,7 @@ legend('bottomleft',
        bty = 'n')
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-68-3.png)<!-- -->
+![](figure-html/unnamed-chunk-68-3.png)<!-- -->
 
 ```r
 require(scatterplot3d)
@@ -78,6 +78,6 @@ scatterplot3d::scatterplot3d(pca$rotation[,1],
                              pch = c(4, 16)[unclass(data$Gender)] )
 ```
 
-![](Material_BD_files/figure-html/unnamed-chunk-68-4.png)<!-- -->
+![](figure-html/unnamed-chunk-68-4.png)<!-- -->
 
 
