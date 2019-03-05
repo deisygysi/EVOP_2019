@@ -2,6 +2,7 @@
 layout: default
 title: Multivariate Analysis
 nav_order: 2
+mathjax: true
 ---
 
 # Multivariate Analysis

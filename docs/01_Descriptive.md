@@ -18,8 +18,6 @@ mathjax: true
 
 ---
 
-\(3^{rd} day\)
-
 
 ## Frequency Tables
 Frequency tables can be used for all kinds of variables, however, it's preferable to be used for the *categorical*. However, if you use it for numerical data, the values of the variable have to be divided into *ranges*.

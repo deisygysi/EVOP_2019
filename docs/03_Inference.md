@@ -2,6 +2,7 @@
 layout: default
 title: Hypothesis testing
 nav_order: 2
+mathjax: true
 ---
 
 # Hypothesis testing

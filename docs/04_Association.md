@@ -2,6 +2,7 @@
 layout: default
 title: Association
 nav_order: 2
+mathjax: true
 ---
 
 # Association

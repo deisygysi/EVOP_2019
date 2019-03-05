@@ -2,6 +2,7 @@
 title: "Inference and Probability"
 nav_order: 2
 layout: default
+mathjax: true
 ---
 
 # Inference and Probability
