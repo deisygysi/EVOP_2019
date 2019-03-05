@@ -26,10 +26,10 @@ Before we can understand **what** the data is revealing us, we have to be able t
 The variables can be classified into two main groups:
 
 1. **Qualitative** or **Categorical**
-    i. **Nominal** (There are no order for the labels)
-        - i.e.. Country, Gender, Brand of preference, Sides of a coin.
-    ii. **Ordinal** (There are an order on the labels)
-        - i.e.. Degree, State of a disease.
+  i. **Nominal** (There are no order for the labels)
+    - i.e.. Country, Gender, Brand of preference, Sides of a coin.
+  ii. **Ordinal** (There are an order on the labels)
+    - i.e.. Degree, State of a disease.
 
 2. **Quantitative** or **Numerical**
     i. **Discrete** (Countable)
