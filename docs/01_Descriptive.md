@@ -659,7 +659,7 @@ IQR(data$Age_death)
 ```
 
 
-**Interpretation**: The Interval interquantile is 25. This value in general used to interpret the `boxplot()`.
+**Interpretation**: The Interval interquantile is 11. It means that the distance between the $1^{st}$ and $3^{rd}$ quantiles is 11 years. This value can be used to make interpretation in the boxplot.
 
 
 ```r
