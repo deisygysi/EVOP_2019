@@ -50,7 +50,7 @@ The variables can be classified into two main groups:
 
 In this course, we will use as an example, the data from GSE$5388$, a data set containing data from patients with Bipolar Disorder. In our data-set we have some phenotype data, and the log transform of the gene expression of some genes.
 
-Link to the data: [DataSet](https://raw.githubusercontent.com/deisygysi/EVOP_2019/master/docs/Data/data.csv).
+Link to the data: [Pheno_DE.csv](https://raw.githubusercontent.com/deisygysi/EVOP_2019/master/docs/Data/Pheno_DE.csv).
 ```r
 data = read.csv("./Pheno_DE.csv", header = T, row.names = 1)
 
