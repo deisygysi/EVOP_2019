@@ -47,7 +47,7 @@ hist(data$Therapy_Fluphenazine, col = "lightpink", freq = F, las = 1, main = 'Fl
 hist(data$Age_onset, col = "gray25", freq = F, las = 1, main = 'Age on diagnosis')
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-35-1.png)<!-- -->
+![](figure-html/unnamed-chunk-35-1.png)<!-- -->
 
 
 ```r
@@ -87,7 +87,7 @@ lines(density(data$Age_onset, na.rm = T)$x,
       col = "gray25")
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-37-1.png)<!-- -->
+![](figure-html/unnamed-chunk-37-1.png)<!-- -->
 
 
 ```r
@@ -119,7 +119,7 @@ plot(.,  type = "p",
      ylab ="Probability")
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-39-1.png)<!-- -->
+![](figure-html/unnamed-chunk-39-1.png)<!-- -->
 
 * **Bernoulli**: This is an outcome of *one* yes/no experiment. Notation: $X\sim Bernoulli(p)$.
 
@@ -164,7 +164,7 @@ axis(1, las = 2)
 axis(2, las = 2)
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-41-1.png)<!-- -->
+![](figure-html/unnamed-chunk-41-1.png)<!-- -->
 
 * **Negative Binomial**: This is conventionally interpreted as the *number of successes in a sequence of independent and identically distributed Bernoulli trials **before** a specified (non-random) number of failures (denoted r) occurs*. Notation: $X\sim NegBin(p,r)$.
 
@@ -198,7 +198,7 @@ axis (1, las = 1)
 axis (2, las = 2)
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-43-1.png)<!-- -->
+![](figure-html/unnamed-chunk-43-1.png)<!-- -->
 * **Poisson**: Expresses the probability of a given *number of events occurring in a fixed interval of time and/or space* if these events occur with a known average rate and independently of the time since the last event. Notation: $X\sim P(\lambda)$.
 
 
@@ -248,7 +248,7 @@ axis (1, las = 1)
 axis (2, las = 2)
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-45-1.png)<!-- -->
+![](figure-html/unnamed-chunk-45-1.png)<!-- -->
 
 ### Continuous Distributions
 
@@ -303,7 +303,7 @@ legend("topright",
        bty = "n")
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-47-1.png)<!-- -->
+![](figure-html/unnamed-chunk-47-1.png)<!-- -->
 
 * **Exponential**: It is often used to model the **time elapsed between events**. It also is independent of the last step. Notation: $X\sim Exp(\lambda)$.
 
@@ -352,7 +352,7 @@ legend("topright",
        bty = "n")
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-49-1.png)<!-- -->
+![](figure-html/unnamed-chunk-49-1.png)<!-- -->
 
 
 * **Gamma**: Gamma is used to model **time to death or failure**. Notation: $X\sim G(\alpha,\beta)$, $\alpha,\beta > 0$.
@@ -418,7 +418,7 @@ legend("topright", c("X ~ G(10,2)",
        bty = "n")
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-51-1.png)<!-- -->
+![](figure-html/unnamed-chunk-51-1.png)<!-- -->
 
 * **Normal**: It is one the most important distributions, mainly because of the central limit theorem, which states that averages of random variables independently drawn from independent distributions converge in distribution to the normal, that is, become normally distributed when the number of random variables is sufficiently large. The normal distribution is symmetric about its mean, the mean is the same as median and mode. Notation: $X\sim N(\mu,\sigma)$.
 
@@ -468,4 +468,4 @@ legend("topright", c("X ~ N(0,1)",
        bty = "n")
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-53-1.png)<!-- -->
+![](figure-html/unnamed-chunk-53-1.png)<!-- -->

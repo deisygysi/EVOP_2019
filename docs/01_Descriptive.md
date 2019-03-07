@@ -118,7 +118,7 @@ table(data$Gender, data$Status) %>%
           las = 1)
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![](figure-html/unnamed-chunk-11-1.png)<!-- -->
 
 ## Central tendency measures
 **Central tendency measures** attempts to summarise/describe the dataset by its *central* position. 
@@ -273,7 +273,7 @@ boxplot(data$Age_onset,
         col = 'salmon')
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
+![](figure-html/unnamed-chunk-15-1.png)<!-- -->
 
 If we are interested in the summary **by** condition, we can use the function `by()`.
 
@@ -490,7 +490,7 @@ boxplot(data$Age_death ~ data$Status,
         col = c('salmon', 'turquoise'))
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
+![](figure-html/unnamed-chunk-17-1.png)<!-- -->
 
 ### Mean
 It is calculated by taking the sum of the values and dividing by the total number of values of the data. 
@@ -601,7 +601,7 @@ legend("topright",
        bty = "n")
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-22-1.png)<!-- -->
+![](figure-html/unnamed-chunk-22-1.png)<!-- -->
 
 ### Mode
 
@@ -679,7 +679,7 @@ boxplot(data$Age_death ,
         las = 2)
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-27-1.png)<!-- -->
+![](figure-html/unnamed-chunk-27-1.png)<!-- -->
 
 
 ```r

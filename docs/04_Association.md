@@ -38,7 +38,7 @@ plot(data$SOX9, data$EFEMP1,
      las = 1)
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-76-1.png)<!-- -->
+![](figure-html/unnamed-chunk-76-1.png)<!-- -->
 
 
 ```r
@@ -90,7 +90,7 @@ plot(data$GJA1, data$DUSP4,
      pch = 16)
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-81-1.png)<!-- -->
+![](figure-html/unnamed-chunk-81-1.png)<!-- -->
 
 
 **Interpretation**: The Spearman correlation between the genes GJA1 and DUSP4 is `-0.1555791`, it means that the correlation is really small.
@@ -235,7 +235,7 @@ boxplot(data$SOX9 ~ data$Alcohol_abuse,
         ylab = "SOX9", las = 1)
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-88-1.png)<!-- -->
+![](figure-html/unnamed-chunk-88-1.png)<!-- -->
 
 ### Diagnostic Plots
 **We have to check if our model is well adjusted to our data.**
@@ -254,7 +254,7 @@ layout(matrix(c(1,2,3,4),2,2)) # optional layout
 plot(fit1, pch = 16, las = 1) # diagnostic plots
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-89-1.png)<!-- -->
+![](figure-html/unnamed-chunk-89-1.png)<!-- -->
 
 1. What is the hypothesis?
     * $H_0: \mu_{alchool = 0} = \mu_{alchool = 1} = ... = \mu_{alchool = 5}$
@@ -316,7 +316,7 @@ TukeyHSD(fit1)
 plot(TukeyHSD(fit1), las=1)
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-91-1.png)<!-- -->
+![](figure-html/unnamed-chunk-91-1.png)<!-- -->
 
 ## Non-parametric ANOVA
 ### Kruskall Wallis
@@ -358,7 +358,7 @@ boxplot(data$SST~data$Status, las = 1,
         col = c('coral','turquoise'))
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-94-1.png)<!-- -->
+![](figure-html/unnamed-chunk-94-1.png)<!-- -->
 
 ### Friedmann
 It is a one-way ANOVA, an extension of the Wilcoxon test. It is used for **dependent samples**. You must have complete cases, it means, all groups have to have the same size.
@@ -405,7 +405,7 @@ plot(data$Post_morten_interval, data$CLDN10, pch = 20,
      xlab = 'Post morten interval', ylab = 'CLDN10')
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-96-1.png)<!-- -->
+![](figure-html/unnamed-chunk-96-1.png)<!-- -->
 
 
 
@@ -500,7 +500,7 @@ par(mfrow = c(2,2))
 plot(mod, which = c(1:4), add.smooth = FALSE, pch=20, las = 1)
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-101-1.png)<!-- -->
+![](figure-html/unnamed-chunk-101-1.png)<!-- -->
 
 
 

@@ -1,8 +1,11 @@
 ---
-layout: default
-title: Hypothesis testing
+title: "Hypothesis testing"
+mathjax: yes
 nav_order: 2
-mathjax: true
+output:
+  html_document:
+    df_print: paged
+layout: default
 ---
 
 # Hypothesis testing
@@ -61,6 +64,9 @@ The risks of these two errors are inversely related and determined by the **leve
 | Decision About Null Hypothesis (H0) | Reject         | Type I error (False Positive) Probability = $\alpha$      | Correct inference (True Negative) Probability = $1 - \beta$ |
 |                                     | Fail to reject | Correct inference (True Positive) Probability = $1 - \alpha$ | Type II error (False Negative) Probability = $\beta$      |
 
+![](figure-html/Teste_hip.png)<!-- -->
+![](figure-html/Teste_hip-b.png)<!-- -->
+
 
 ### p-value
 The **p-value** is defined as the probability of obtaining a result equal to or *more extreme* than what was observed, *when the null hypothesis is true*. In other words, it is *the strength of evidence in support of a null hypothesis*.
@@ -89,7 +95,7 @@ hist(normal,
      xlab = "Normal Variable")
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-54-1.png)<!-- -->
+![](figure-html/unnamed-chunk-54-1.png)<!-- -->
 
 * Example: Suppose that we have 100 random samples (of size n = 25) that came from a certain population (of size N = 1000). In approximately 95% of the cases, the real mean will lie inside the estimated confidence interval.
 
@@ -131,7 +137,7 @@ arrows(c(1:100),CIs$CI.lower,c(1:100),CIs$CI.upper,code=3,length=0.2,angle=90,co
 abline(h=mean(normal), lwd= 2, lty=2, col= "purple")
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-56-1.png)<!-- -->
+![](figure-html/unnamed-chunk-56-1.png)<!-- -->
 
 ### Testing normality
 Tests for normality are mainly used to check if a particular **variable follows a Normal distribution**. It is useful mainly because the **parametric tests require normality**.
@@ -171,7 +177,7 @@ qqline(data$Age_death, col = 2)
 boxplot(data$Age_death)
 ```
 
-![](Material_Print_files/figure-html/unnamed-chunk-58-1.png)<!-- -->
+![](figure-html/unnamed-chunk-58-1.png)<!-- -->
 
 1. What is the hypothesis?
     * $H_0$: The Age follows a Normal distribution
