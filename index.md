@@ -5,4 +5,4 @@ date: "20 March 2019"
 ---
 
 
-Welcome to the module of Basic Statistics: Probability and Inference using R.
+Welcome to the EVOP module of Basic Statistics: Probability and Inference using R.
