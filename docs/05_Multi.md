@@ -16,7 +16,6 @@ mathjax: true
 {:toc}
 
 ---
-
 The multivariate analysis aims to reduce the dimensionality of datasets with more than one response variable.
 
 ## Principal Component Analysis (PCA)
@@ -29,12 +28,15 @@ The PCA can be called on R using the functions: `prcomp()` and `princomp()`.
 * Example. Using only the genes in our dataset, let's see if there is any cluster. Later, plot it and colour by gender and disorder.
 
 
+
 ```r
 pca = prcomp(t(data[,-c(1:16)]), scale. = T, center = T)
 plot(pca)
 ```
 
-![](figure-html/unnamed-chunk-68-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-102-1.png)<!-- -->
+
+
 
 ```r
 plot(pca$rotation, col = c('red', 'blue')[unclass(data$Status)], pch = 16, las = 1)
@@ -45,7 +47,8 @@ legend('bottomleft',
        bty = 'n')
 ```
 
-![](figure-html/unnamed-chunk-68-2.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-103-1.png)<!-- -->
+
 
 ```r
 plot(pca$rotation, col = c('red', 'blue')[unclass(data$Status)], pch = c(4, 16)[unclass(data$Gender)], las = 1)
@@ -57,7 +60,9 @@ legend('bottomleft',
        bty = 'n')
 ```
 
-![](figure-html/unnamed-chunk-68-3.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-104-1.png)<!-- -->
+
+
 
 ```r
 require(scatterplot3d)
@@ -66,6 +71,7 @@ require(scatterplot3d)
 ```
 ## Loading required package: scatterplot3d
 ```
+
 
 ```r
 scatterplot3d::scatterplot3d(pca$rotation[,1], 
@@ -79,6 +85,6 @@ scatterplot3d::scatterplot3d(pca$rotation[,1],
                              pch = c(4, 16)[unclass(data$Gender)] )
 ```
 
-![](figure-html/unnamed-chunk-68-4.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-106-1.png)<!-- -->
 
 

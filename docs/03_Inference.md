@@ -22,12 +22,12 @@ In traditional / frequentist Statistics there are two different statistical hypo
 
 * **Null hypothesis**: denoted by $H_0$ or H0, is usually the hypothesis that sample observations result **purely from chance**. In general, it is an equality assumption.
 
-* **Alternative hypothesis**: denoted by $H_1$ or $H_a$, is the hypothesis that sample observations are influenced by some non-random cause. In general, it is inequality, superiority or inferiority.
+* **Alternative hypothesis**: denoted by $H_1$ or $H_a$, is the hypothesis that sample observations are influenced by some non-random cause. In general, it is inequality, superiority, or inferiority.
 
 There are two outcomes from Hypothesis testing:
 
-1. **you reject the null hypothesis**;
-1. **you fail to reject the null hypothesis**. We never say that we accepted the null hypothesis. Failure to reject means that the data are not sufficiently persuasive for us to prefer the alternative hypothesis over the null hypothesis.
+1. **Rejection the null hypothesis**;
+1. **Fail to reject the null hypothesis**. The null hypothesis is never accepted. Failing to reject means that the data are not sufficiently persuasive for us to prefer the alternative hypothesis over the null hypothesis.
 
 ## Steps to test a null hypothesis
 
@@ -38,7 +38,7 @@ There are two outcomes from Hypothesis testing:
 
 The hypothesis is measured using a statistic, that, in other words, is a probabilistic way to measure it.
 
-* **Example**: We want to know if the two groups in our example are different. How different, in which sense? Let's say mean of ages. If they are not the same under H0, it means, the mean of both groups is different, the probability of having the same mean is small.
+* **Example**: We want to know if the two groups in our example are different. Different in which sense? Let's say mean of ages. If they are not the same under H0, it means, the mean of both groups is different, the probability of having the same mean is small.
 
 Again. We have 4 steps:
 
@@ -51,9 +51,9 @@ Again. We have 4 steps:
 Two types of errors are possible are possible from testing a hypothesis: **type I** and **type II**. 
 The risks of these two errors are inversely related and determined by the **level of significance** and the **power of the test**.
 
-* **Type I error**: occurs when the **null hypothesis is rejected when it is true**. The probability of committing a Type I error is called the significance level. This probability is also called alpha and is often denoted by $\alpha$.
+* **Type I error**: occurs when the **null hypothesis is rejected when it is true**, it the **false positive**. The probability of committing a Type I error is called the significance level. This probability is also called alpha and is often denoted by $\alpha$.
 
-* **Type II error**: occurs when the **null hypothesis is failed to be rejected when it is false**. The probability of committing a Type II error is called Beta and is often denoted by $\beta$. The probability of not committing a Type II error is called the Power of the test.
+* **Type II error**: occurs when the **null hypothesis is failed to be rejected when it is false**, it is the **false negative**. The probability of committing a Type II error is called Beta and is often denoted by $\beta$. The probability of not committing a Type II error is called the Power of the test.
 
 | Error types                         |                | Null hypothesis (H0) is                                   |                                                           |
 |-------------------------------------|----------------|-----------------------------------------------------------|-----------------------------------------------------------|
@@ -61,19 +61,14 @@ The risks of these two errors are inversely related and determined by the **leve
 | Decision About Null Hypothesis (H0) | Reject         | Type I error (False Positive) Probability = $\alpha$      | Correct inference (True Negative) Probability = $1 - \beta$ |
 |                                     | Fail to reject | Correct inference (True Positive) Probability = $1 - \alpha$ | Type II error (False Negative) Probability = $\beta$      |
 
-![](Teste_hip-b.png)
-
-![](Teste_hip.png)
-
-
 
 ### p-value
 The **p-value** is defined as the probability of obtaining a result equal to or *more extreme* than what was observed, *when the null hypothesis is true*. In other words, it is *the strength of evidence in support of a null hypothesis*.
 
-**Note: Because p-value is a probability it lies in the interval $(0,1)$.**
+**Note: The p-value is a probability. It lies in the interval $(0,1)$.**
 
 ### Confidence Intervals
-Suppose we want to estimate an actual population mean. However, we cannot compute the population mean, right? What we have is a random sample from a population. Therefore, we have a **range where the real mean is, this range is called Confidence Interval**.
+Suppose we want to estimate an actual population mean. However, we cannot compute the population mean, unless we have the population. However, we have a random sample from a population. From that we have a **range where the real mean is, this range is called Confidence Interval**.
 
 mean - value < $\mu$ < mean + value
 
@@ -81,6 +76,7 @@ This value depends on the confidence we want, also depends on the distribution c
 For the **Normal** we have the probability for the desired quantile (1.96 for 5% significance) * the standard deviation of the sample/sqrt (size of the sample).
 
 $IC = \bar{x} \pm 1.96 \times sd(x)/ \sqrt{n}$
+
 
 
 ```r
@@ -93,17 +89,10 @@ hist(normal,
      xlab = "Normal Variable")
 ```
 
-![](## figure-html/unnamed-chunk-44-1.png)<!-- -->
-
-```r
-mean(normal)
-```
-
-```
-## [1] -0.03859832
-```
+![](Material_Print_files/figure-html/unnamed-chunk-54-1.png)<!-- -->
 
 * Example: Suppose that we have 100 random samples (of size n = 25) that came from a certain population (of size N = 1000). In approximately 95% of the cases, the real mean will lie inside the estimated confidence interval.
+
 
 
 ```r
@@ -124,6 +113,7 @@ CI = function(data, sign=0.05, two.tails = T,size=25, n){
 
 
 
+
 ```r
 CIs = CI(data = normal, n = 100)
 
@@ -141,7 +131,7 @@ arrows(c(1:100),CIs$CI.lower,c(1:100),CIs$CI.upper,code=3,length=0.2,angle=90,co
 abline(h=mean(normal), lwd= 2, lty=2, col= "purple")
 ```
 
-![](## figure-html/unnamed-chunk-46-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-56-1.png)<!-- -->
 
 ### Testing normality
 Tests for normality are mainly used to check if a particular **variable follows a Normal distribution**. It is useful mainly because the **parametric tests require normality**.
@@ -150,9 +140,8 @@ A good test is the Shapiro Wilks test, on R can be used by the function `shapiro
 
 **Hypothesis:**
 
-$H_0$: The variable X follows a Normal distribution
-
-$H_a$: The variable X does not follow a Normal distribution
+ - $H_0$: The variable X follows a Normal distribution
+ - $H_a$: The variable X does not follow a Normal distribution
 
 Notice that using the `shapiro.test()` we want the null hypothesis ($H_0$) to be true, so, we want high p-values.
 
@@ -173,6 +162,7 @@ shapiro.test(data$Age_death)
 ## W = 0.98884, p-value = 0.8531
 ```
 
+
 ```r
 par(mfrow = c(1,2))
 
@@ -181,7 +171,7 @@ qqline(data$Age_death, col = 2)
 boxplot(data$Age_death)
 ```
 
-![](## figure-html/unnamed-chunk-48-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-58-1.png)<!-- -->
 
 1. What is the hypothesis?
     * $H_0$: The Age follows a Normal distribution
@@ -191,7 +181,7 @@ boxplot(data$Age_death)
 1. What is the significance level?
     * 0.05
 1.  Results?
-    * p-value = `0.8531134`
+    * p-value = `0.8531`
 
 **Interpretation**: The p-value is higher than 0.05, we assume that the Age of death follows a Normal distribution.
 
@@ -204,15 +194,15 @@ Comparing two variances is useful in several cases, including:
 1. When you want to perform a *two samples t-test* to check the equality of the variances of the two samples;
 1. When you want to compare the variability of a new measurement method to an old one. Is the new method able to reduce the variability of the measure?
 
-Hypothesis:
+**Hypothesis**:
 
-$H_0: \sigma_1 = \sigma_2$
-
-$H_a: \sigma_1 \neq \sigma_2$
+ * $H_0: \sigma_1 = \sigma_2$
+ * $H_a: \sigma_1 \neq \sigma_2$
 
 On R the functions `var.test()` or `bartlett.test()` can be used to test if two variables have the same variance.
 
 * Example 1. Under a significance level of 5%, is the variance from Age of death in both groups the same?
+
 
 
 ```r
@@ -226,6 +216,7 @@ shapiro.test(data$Age_death)
 ## data:  data$Age_death
 ## W = 0.98884, p-value = 0.8531
 ```
+
 
 ```r
 var.test(data$Age_death[data$Status == 'Healthy control'], 
@@ -258,9 +249,10 @@ var.test(data$Age_death[data$Status == 'Healthy control'],
     * p-value = `0.042697`
 
 
-**Interpretation**: Because the p-value is less than 0.05, we can assume that both groups do not have the same variance.
+**Interpretation**: Because the p-value is smaller than 0.05, we can assume that both groups do not have the same variance.
 
 * Example 2. Under a significance level of 5%, is there a difference in the variance of the age of death in gender groups?
+
 
 
 ```r
@@ -275,6 +267,7 @@ shapiro.test(data$Age_death[data$Gender == 'Female'])
 ## W = 0.97069, p-value = 0.7483
 ```
 
+
 ```r
 shapiro.test(data$Age_death[data$Gender != 'Female'])
 ```
@@ -286,6 +279,8 @@ shapiro.test(data$Age_death[data$Gender != 'Female'])
 ## data:  data$Age_death[data$Gender != "Female"]
 ## W = 0.97729, p-value = 0.59
 ```
+
+
 
 ```r
 var.test(data$Age_death ~ data$Gender)
@@ -305,6 +300,7 @@ var.test(data$Age_death ~ data$Gender)
 ##          0.8035782
 ```
 
+
 ```r
 bartlett.test(data$Age_death ~ data$Gender)
 ```
@@ -316,7 +312,6 @@ bartlett.test(data$Age_death ~ data$Gender)
 ## data:  data$Age_death by data$Gender
 ## Bartlett's K-squared = 0.30237, df = 1, p-value = 0.5824
 ```
-
 1. What is the hypothesis?
     * $H_0: \sigma_{Age_{Female}} = \sigma_{Age_{Male}}$
     * $H_a: \sigma_{Age_{Female}} \neq \sigma_{Age_{Male}}$
@@ -325,27 +320,28 @@ bartlett.test(data$Age_death ~ data$Gender)
 1. What is the significance level?
     * 0.05
 1. Results?
-    * p-value = `0.6111912`
+    * p-value = `0.582402`
 
 **Interpretation**: The p-value is greater than 0.05, we cannot discard the null hypothesis, it means that we don't have enough support to say that the variance in both groups differs.
 
 
 ### Testing the mean
-To test if the mean of one variable is the same among two groups, one can use the t-test. You can also use the t-test to test if a certain sample mean is a particular number.
+To test if the mean of one variable is the same between two groups, one can use the t-test. You can also use the t-test to test if a certain sample mean is a particular number.
 
 Important: 
 * ** The t-test needs that the variable of interest follows a Normal distribution.**
 * If you want to compare means of more than 2 groups you should use ANOVA.
-* There are 4 different t-tests, and we can use the function `t.test()` for all t.tests.
+* There are $4$ different t-tests, and we can use the function `t.test()` for all t.tests.
 
 #### Test if a certain value is the mean of a certain variable
 One sample t-test: You want to check whether a certain value $(x)$ is plausible or not for the real (populational) mean.
-** One sample has to be independent of the other **.
-Hypothesis:
 
-$H_0: \mu = x$
+**One sample has to be independent of the other**.
 
-$H_a: \mu \neq x$
+**Hypothesis**:
+
+ * $H_0: \mu = x$
+ * $H_a: \mu \neq x$
 
 * Example: We believe that the average age of death in our population is 40 years old, using the significance level of 0.05 test our hypothesis.
 
@@ -363,6 +359,7 @@ shapiro.test(data$Age_death)
 ## data:  data$Age_death
 ## W = 0.98884, p-value = 0.8531
 ```
+
 
 ```r
 ## It's Normal! Great, let's follow!
@@ -392,7 +389,7 @@ t.test(data$Age_death, mu = 40, data = data)
 1. What is the significance level?
     * 0.05
 1. Results?
-    * p-value < 0.001
+    * p-value < `0.001`
     
 **Interpretation**: The p-value is smaller than 0.05, we discard the null hypothesis and accept the alternative one, it means that the mean of Age is different than 40 years old.
 
@@ -401,11 +398,10 @@ t.test(data$Age_death, mu = 40, data = data)
 Two samples, with the same variance: You want to know if 2 groups with the same variance have the same mean.
 One sample must be independent of the other.
 
-Hypothesis:
+**Hypothesis**:
 
-$H_0: \mu_{1} = \mu_{2}$
-
-$H_a: \mu_{1} \neq \mu_{2}$
+* $H_0: \mu_{1} = \mu_{2}$
+* $H_a: \mu_{1} \neq \mu_{2}$
 
 * Example: You want to know if the age of death is different in the two genders. Use the significance level of 0.05.
 
@@ -470,7 +466,7 @@ t.test(Age_death ~ Status, data = data, var.equal = T)
 1. What is the significance level?
     * 0.05
 1. Results?
-    * p-value = 0.7678611
+    * p-value = `0.7678611`
 
 **Interpretation**: The p-value is greater than 0.05, we cannot discard the null hypothesis, it means that we don't have enough support to say that the mean age is different among the two conditions.
 
@@ -480,11 +476,10 @@ Two samples, with different variance: You want to know if 2 groups with differen
 * The samples, have to be independent.
 * The groups can have different sizes.
 
-Hypothesis:
+** Hypothesis**:
 
-$H_0: \mu_{1} = \mu_{2}$
-
-$H_a: \mu_{1} \neq \mu_{2}$
+* $H_0: \mu_{1} = \mu_{2}$
+* $H_a: \mu_{1} \neq \mu_{2}$
 
 * Example: Test if there was a difference in the duration of illness from individuals that took valproate therapy? Use the significance level of 0.05.
 
@@ -501,6 +496,7 @@ shapiro.test(data$Duration_illness)
 ## data:  data$Duration_illness
 ## W = 0.96852, p-value = 0.4995
 ```
+
 
 ```r
 # It's normal, great. We have now to test for the variance in the two groups. 
@@ -520,6 +516,7 @@ var.test(data$Duration_illness ~ data$Therapy_Valproate, data = data)
 ## ratio of variances 
 ##          0.3447213
 ```
+
 
 ```r
 # We have support to say that they have different variances, perfect, let's follow!
@@ -549,19 +546,18 @@ t.test(data$Duration_illness ~ data$Therapy_Valproate, data = data, var.equal = 
 3. What is the significance level?
     * 0.05
 4. Results?
-    * p-value = 0.226883
+    * p-value = `0.226883`
 
 **Interpretation**: Once the p-value is greater than 0.05, we cannot discard the null hypothesis, it means that we don't have enough support to say that the average age of illness is different between the individuals that took valproate.
 
 #### Test if one sample has the same mean in two different treatments
 
 Paired samples: You want to know if the **same sample** has a difference between two treatments/time.
-Hypothesis:
 
-$H_0: \mu_{x, time 1} = \mu_{x, time 2}$
+**Hypothesis**:
 
-$H_a: \mu_{x, time 1} \neq \mu_{x, time 2}$
-
+* $H_0: \mu_{x, time 1} = \mu_{x, time 2}$
+* $H_a: \mu_{x, time 1} \neq \mu_{x, time 2}$
 
 ### Testing median
 If the samples **do not follow a Normal distribution**, we want to test if the median of the samples differs.
@@ -570,17 +566,15 @@ To test if the median of two medians is equal in two groups, we can use the **Wi
 
 On R we can use the function `wilcox.test()`.
 
-Hypothesis for Mann-Whitney:
+**Hypothesis for Mann-Whitney**:
 
-$H_0: median_{1} = median_{2}$
+* $H_0: median_{1} = median_{2}$
+* $H_a: median_{1} \neq median_{2}$
 
-$H_a: median_{1} \neq median_{2}$
+** Hypothesis for Wilcoxon**:
 
-Hypothesis for Wilcoxon:
-
-$H_0: median_{time1} = median_{time2}$
-
-$H_a: median_{time1} \neq median_{time1}$
+* $H_0: median_{time1} = median_{time2}$
+* $H_a: median_{time1} \neq median_{time1}$
 
 * Example 1. We want to know if the average intake of Fluphenazine is different between suicidal. Use the significance level of 0.05.
 
@@ -597,6 +591,7 @@ shapiro.test(data$Therapy_Fluphenazine)
 ## W = 0.46829, p-value = 3.696e-09
 ```
 
+
 ```r
 wilcox.test(data$Therapy_Fluphenazine ~ data$Suicide, paired = F, exact = F)
 ```
@@ -609,16 +604,15 @@ wilcox.test(data$Therapy_Fluphenazine ~ data$Suicide, paired = F, exact = F)
 ## W = 124, p-value = 0.2605
 ## alternative hypothesis: true location shift is not equal to 0
 ```
-
 1. What is the hypothesis?
-    * $H_0: median_{Gene4} = median_{Gene4}$
-    * $H_a: median_{Gene4} \neq median_{Gene4}$
+    * $H_0: median_{Therapy Fluphenazine_{Suicide = Yes}} = median_{Therapy Fluphenazine_{Suicide = No}}$
+    * $H_a: median_{Therapy Fluphenazine_{Suicide = Yes}} \neq median_{Therapy Fluphenazine_{Suicide = No}}$
 2. What is the statistics?
     * Median
 3. What is the significance level?
     * 0.05
 4. Results?
-    * p-value = 0.2604674
+    * p-value = `0.2604674`
 
 **Interpretation**: The p-value is greater than 0.05, we cannot discard the null hypothesis, it means that we do not have enough support to say that the median of intake of Fluphenazine is different in suicidal patients.
 
@@ -628,13 +622,13 @@ When we are interested in the proportions of two different groups are different,
 **Important**: The proportional tests assume that the samples are unrelated.
 On R we can call the function `prop.test()` for it.
 
-Hypothesis:
+**Hypothesis**:
 
-$H_0: prop_{1} = prop_{2}$
-
-$H_a: prop_{1} \neq prop_{2}$
+* $H_0: prop_{1} = prop_{2}$
+* $H_a: prop_{1} \neq prop_{2}$
 
 * Example 1. We are interested in the Gender of our population. We want to know if we have the same proportion of males and females. For that, we can use the proportion test. Use the significance level of 0.05.
+
 
 
 ```r
@@ -654,6 +648,7 @@ prop.test(table(data$Gender))
 ##         p 
 ## 0.3442623
 ```
+
 1. What is the hypothesis?
     * $H_0: prop_{F} = prop_{M}$
     * $H_a: prop_{F} \neq prop_{M}$
@@ -662,7 +657,7 @@ prop.test(table(data$Gender))
 3. What is my significance level?
     * 0.05
 4. Outcome:
-    * p-value = 0.0211854
+    * p-value = `0.0211854`
 
 **Interpretation**: The p-value was smaller than 0.05, so we discard the null hypothesis, meaning that we have enough support to say that we have different proportions for male and female in our study.
 

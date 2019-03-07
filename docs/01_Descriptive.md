@@ -20,9 +20,9 @@ mathjax: true
 
 
 ## Frequency Tables
-Frequency tables can be used for all kinds of variables, however, it's preferable to be used for the *categorical*. However, if you use it for numerical data, the values of the variable have to be divided into *ranges*.
+Frequency tables can be used for all kinds of variables, however, it's preferable to be used for the *categorical* ones. If you use it for numerical data, the variable's values have to be divided into *ranges*.
 
-To get an absolute frequency table using R, 
+To get an *absolute frequency* table using R, 
 the easiest way is by using the function `table()`, 
 and for a relative frequency table `prop.table()`.
 
@@ -47,6 +47,7 @@ table(data$Status)
 ##               30               31
 ```
 
+
 ```r
 require(magrittr) # Allows using pipe inside R
 ```
@@ -54,6 +55,7 @@ require(magrittr) # Allows using pipe inside R
 ```
 ## Loading required package: magrittr
 ```
+
 
 ```r
 table(data$Gender) %>% # Pipes the absolute freq. table into
@@ -66,7 +68,7 @@ table(data$Gender) %>% # Pipes the absolute freq. table into
 ## 0.3442623 0.6557377
 ```
 
-What happens if we ask for a `prop.table()` on an object that is not a table?
+Try: What happens if we ask for a `prop.table()` on an object that is not a table?
 
 
 ```r
@@ -74,6 +76,7 @@ What happens if we ask for a `prop.table()` on an object that is not a table?
 ```
 
 The `table()` function also allows us to create cross-tables. For that, the input is two variables.
+
 
 ```r
 table(data$Gender, data$Status)
@@ -85,6 +88,7 @@ table(data$Gender, data$Status)
 ##   Female               14               7
 ##   Male                 16              24
 ```
+
 
 ```r
 table(data$Gender, data$Status) %>% 
@@ -99,7 +103,8 @@ table(data$Gender, data$Status) %>%
 ##   Male               0.26            0.39
 ```
 
-Normally `barplot()` is used to represent visually a frequency table.
+When the interest lies in visualising this results, the `barplot()` can be used to represent visually a frequency table.
+
 
 
 ```r
@@ -113,11 +118,10 @@ table(data$Gender, data$Status) %>%
           las = 1)
 ```
 
-![](figure-html/unnamed-chunk-6-1.png)<!-- -->
-
+![](Material_Print_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
 
 ## Central tendency measures
-The **central tendency measures** attempts to summarise/describe the dataset by its central position. 
+**Central tendency measures** attempts to summarise/describe the dataset by its *central* position. 
 The *mean*, *median* and *mode* are examples of central measurements.
 
 The **five-number summary** is a set of descriptive statistics that provide information about a dataset. 
@@ -131,6 +135,7 @@ It consists of five quartiles:
 
 The functions `summary()` and `fivenum()` returns the five-number summary. They are a bit different how they calculate the $1^{st}$ and $3^{rd}$ quantiles.
 `summary()` calculates the average of the two numbers, if even, `fivenum()` returns the minimum. 
+
 
 
 ```r
@@ -248,16 +253,14 @@ summary(data$Age_death)
 ##   19.00   38.00   45.00   44.18   49.00   64.00
 ```
 
+
 ```r
+###  (minimum, lower-hinge, median, upper-hinge, maximum)
 fivenum(data$Age_death)
 ```
 
 ```
 ## [1] 19 38 45 49 64
-```
-
-```r
-###  (minimum, lower-hinge, median, upper-hinge, maximum)
 ```
 
 The graphical representation of the summary is the `boxplot()`.
@@ -270,7 +273,7 @@ boxplot(data$Age_onset,
         col = 'salmon')
 ```
 
-![](figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
 
 If we are interested in the summary **by** condition, we can use the function `by()`.
 
@@ -478,7 +481,7 @@ by(data, data$Status,
 ## 
 ```
 
-And the `boxplot()`:
+The `boxplot()` can also be done for two different categories:
 
 
 ```r
@@ -487,8 +490,7 @@ boxplot(data$Age_death ~ data$Status,
         col = c('salmon', 'turquoise'))
 ```
 
-![](figure-html/unnamed-chunk-11-1.png)<!-- -->
-
+![](Material_Print_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
 
 ### Mean
 It is calculated by taking the sum of the values and dividing by the total number of values of the data. 
@@ -504,10 +506,14 @@ mean(data$Age_death)
 ## [1] 44.18033
 ```
 
-**Interpretation**: On average, the age of death of death in this study was 44.1803279.
+
+**Interpretation**: The average age of death in this study was 
+44.1803279.
 
 
-You can also use `colMeans()` and `rowMeans()` to compute the mean of columns and rows.
+
+The functions `colMeans()` and `rowMeans()` can be also used for computing the mean of columns and rows.
+
 
 
 ```r
@@ -546,7 +552,7 @@ rowMeans(data[,17:28], na.rm = T)
 ```
 
 ### Median
-It is the value that divides your dataset in the **middle**, the function`median()` computes it in R.
+The median is divides a variable in the **middle**, the function`median()` computes it in R. When dealing with variables that are not symmetrically distributed, it is important to describe the variable by its median.
 
 
 ```r
@@ -557,16 +563,16 @@ median(data$Age_death)
 ## [1] 45
 ```
 
-**Interpretation**: The mid-age of death in this study was 45. This means that this is the value that divides the data in half.
+**Interpretation**: The mid-age of death in this study was `45`. This means that this is the value that divides the data in half.
 
-Note! The median is not always the same as the mean!
+Note that in the case of non-symmetry, the median is not the same as the mean!
+
 
 
 ```r
-# attach(data)
-plot((density(data$Age_death))$x,(density(data$Age_death))$y, 
+plot((density(data$APOLD1))$x,(density(data$APOLD1))$y, 
      type = "l", 
-     xlab = "Age of death",
+     xlab = "Expression of gene APOLD1",
      ylab = "Density", 
      las = 2, 
      axes = F, 
@@ -574,7 +580,7 @@ plot((density(data$Age_death))$x,(density(data$Age_death))$y,
      lwd = 3, 
      col.lab = "steelblue")
 axis(1, 
-     at = seq(from = (round(min(data$Age_death))-2), by = 2, to = (2+round(max(data$Age_death)))), 
+     at = seq(from = (round(min(data$APOLD1))-2), by = 2, to = (2+round(max(data$APOLD1)))), 
      col = "gray75",  
      col.axis = "gray75")
 axis(2, 
@@ -582,28 +588,26 @@ axis(2,
      col = "gray75", 
      col.ticks = "gray75", 
      col.axis = "gray75")
-abline(v = median(data$Age_death), 
+abline(v = median(data$APOLD1), 
        col = "salmon", 
        lwd = 2)
-abline(v = mean(data$Age_death), 
+abline(v = mean(data$APOLD1), 
        col = "steelblue", 
        lwd = 2)
 legend("topright", 
-       c(paste("Median", round(median(data$Age_death),2)), paste("Mean", round(mean(data$Age_death),2))), 
+       c(paste("Median", round(median(data$APOLD1),2)), paste("Mean", round(mean(data$APOLD1),2))), 
        col = c("salmon", "steelblue"), 
        lwd = 2, 
        bty = "n")
 ```
 
-![](figure-html/unnamed-chunk-16-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-22-1.png)<!-- -->
 
 ### Mode
 
-The mode is the value that appears **the most on a variable**. 
-It's the *fashion* of the variable, the one that almost everyone is wearing. 
-And sometimes there might exist more than one mode, but we won't deal with it here.
+The mode is the value that appears **the most on a variable**. Sometimes, a variable might have more than one mode, but we won't deal with it here.
 
-Unfortunately, there is no function on R to compute the mode. But we already know how to construct tables and functions. So, let's create our own function.
+Unfortunately, there is no function on R to compute the mode. However, we can construct our own function. By the definition, it is the value that appears the most, so, let's create a table. 
 
 
 ```r
@@ -621,20 +625,22 @@ Mode = function(VAR){
 Mode(data$Age_onset)
 ```
 
-```
-##   Value    Frequency
-##   25               3
-```
+<div class="kable-table">
 
-**Interpretation**: The most common age where people were diagnosed with bipolar disorder was 25 years.
+     Value    Frequency
+---  ------  ----------
+25   25               3
 
+</div>
+
+**Interpretation**: The most common age where people were diagnosed with bipolar disorder was `25` years.
 
 
 ## Dispersion measures
 The dispersion refers to *how the values are spread* from the central data. It is as important as the central tendency values. Some of them are *Range*, *IQR*, *Variance* and *standard deviation*.
 
 ### Range
-The range is the difference between the largest and the smallest value of a variable.
+The range is the difference between the largest and the smallest value of a variable. It means that is the range between the minimum and the maximum of a variable.
 The function `range()` returns the minimum and maximum values, to have the range we have to use the function `diff()`.
 
 
@@ -646,12 +652,13 @@ range(data$Age_death) %>%
 ```
 ## [1] 45
 ```
-
 **Interpretation**: The difference (or the range) among the ages in our study was 45 years.
 
 ### Interquartile range (IQR)
-Is the difference between the third and the first quartiles. It's used to read and draw the boxplots.
-On R we can use the function IQR()
+Is the difference between the third and the first quartiles. It's used to read and draw the boxplots. When dealing with non-symmetrical variables, it is also used to describe its dispersion, instead of using the standard deviation. 
+
+On R we can use the function `IQR()`
+
 
 ```r
 IQR(data$Age_death)
@@ -661,8 +668,8 @@ IQR(data$Age_death)
 ## [1] 11
 ```
 
+**Interpretation**: The Interval interquantile is ``11``. It means that the distance between the $1^{st}$ and $3^{rd}$ quantiles is ``11`` years. This value can be used to make the interpretation of the boxplot.
 
-**Interpretation**: The Interval interquantile is 11. It means that the distance between the $1^{st}$ and $3^{rd}$ quantiles is 11 years. This value can be used to make interpretation in the boxplot.
 
 
 ```r
@@ -672,7 +679,8 @@ boxplot(data$Age_death ,
         las = 2)
 ```
 
-![](figure-html/unnamed-chunk-21-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-27-1.png)<!-- -->
+
 
 ```r
 quantile(data$Age_death)
@@ -682,8 +690,6 @@ quantile(data$Age_death)
 ##   0%  25%  50%  75% 100% 
 ##   19   38   45   49   64
 ```
-
-
 
 ### Variance
 Variance is the expectation of the squared deviation of a random variable from its mean. In other words, the variance is how far the values are from the mean. We can calculate it using the function `var()`.
@@ -696,12 +702,12 @@ var(data$Age_death)
 ```
 ## [1] 82.38361
 ```
-
-**Interpretation**: The age of the individuals in our study deviates from the mean in 82.3836066 years$^2$ (quadratic scale).
+**Interpretation**: The age of the individuals in our study deviates from the mean in ``82.38`` years$^2$ (quadratic scale).
 However, it is quite hard to make interpretations in years$^2$.
 
 ### Standard deviation (SD)
 Is how the values are spread around the mean. It is given by the square root of the variance. A low standard deviation indicates that the data points tend to be close to the mean, while a high standard deviation indicates that the data points are spread out over a wider range of values. To compute the SD using R we can use the function `sd()`.
+
 
 ```r
 sd(data$Age_death)
@@ -719,7 +725,7 @@ sqrt(var(data$Age_death))
 ## [1] 9.076542
 ```
 
-**Interpretation**: The age of the individuals in our study deviates from the mean in 9.0765416 years (data scale).
+**Interpretation**: The age of the individuals in our study deviates from the mean in `9.08` years (data scale).
 
 ### Coefficient of variation
 The coefficient of variation is the sd divided by the mean. In chemistry is widely used to express the precision and repeatability of an experiment. Normally it is expressed as a percentage. The CV aims to describe the dispersion of the variable in a way that does not depend on the variable's measurement unit. The higher the CV, the greater the dispersion in the variable.
@@ -729,14 +735,14 @@ It's also used to compare the variation of variables that are not on the same sc
 The R doesn't have a function to compute it, but we can easily create our own.
 
 
+
 ```r
-sd(sd(data$Age_death))/mean(sd(data$Age_death))*100
+sd(data$Age_death)/mean(data$Age_death)*100
 ```
 
 ```
-## [1] NA
+## [1] 20.54431
 ```
-
 
 
 ```r
@@ -746,23 +752,22 @@ CV <- function(VAR){
 ```
 
 
+
 ```r
-CV(sd(data$Age_death))
+CV(data$Age_death)
 ```
 
 ```
-## [1] NA
+## [1] 20.54431
 ```
-
 
 ## Exercises
 1. Make absolute and relative frequency tables for the variables: Gender and Status. 
 
 1. Check how many people that suffered from Bipolar Disorder committed suicide. Visualise it using a barplot. 
 
-2. Compute and make the correct interpretations for the mean, median, IQR, standard deviation, variance and CV for all the quantitative variables. Tipp: You can create a function for that!
+2. Compute and make the correct interpretations for the mean, median, IQR, standard deviation, variance and CV for **all the quantitative variables**. Tipp: You can create a function for that!
 
-3. Compute and make the correct interpretations for the mean, median, IQR, standard deviation, variance and CV for all the numeric variables only for Males. Tipp: Use the function created before on a subset of the dataset.
+3. Compute and make the correct interpretations for the mean, median, IQR, standard deviation, variance and CV for all the numeric variables **only for Males**. Tipp: Use the function created before on a subset of the dataset.
 
-4. Compute and make the correct interpretations for the mean, median, IQR, standard deviation, variance and CV for all the quantitative variables for both conditions separately.
-
+4. Compute and make the correct interpretations for the mean, median, IQR, standard deviation, variance and CV for all the quantitative variables for **both conditions separately**. Tipp: Use the function created before; use the function `by()`.

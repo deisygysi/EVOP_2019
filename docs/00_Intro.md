@@ -16,6 +16,7 @@ mathjax: true
 
 ---
 
+
 The goal of this module is to introduce basic concepts of statistics and how to make the correct interpretation of the results. Moreover, you will be able to construct your own functions to analyse your data. 
 
 
@@ -24,7 +25,7 @@ The goal of this module is to introduce basic concepts of statistics and how to 
 
 In the end, the statistical analysis should be able to tell us something concrete about the sample that we are studying and allow us to make inferences towards a population.
 
-![](figure-html/unnamed-chunk-1-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
 
 Statistics is normally divided into two main parts:
 *Descriptive statistics* and *Inferential statistics*.
@@ -49,12 +50,28 @@ The variables can be classified into two main groups:
 
 In this course, we will use as an example, the data from GSE$5388$, a data set containing data from controls and patients with Bipolar Disorder, some phenotypic information and the log transform of the gene expression of few genes.
 
-Link to the data: [Pheno_DE.csv](https://raw.githubusercontent.com/deisygysi/EVOP_2019/master/docs/Data/Pheno_DE.csv).
-```r
-data = read.csv("./Pheno_DE.csv", header = T, row.names = 1)
+* Link to the data: https://raw.githubusercontent.com/deisygysi/EVOP_2019/master/docs/Data/Pheno_DE.csv.
 
-data[1:5,1:10]
+
+```r
+data = read.csv("Course_2019/Pheno_DE.csv", header = T, row.names = 1)
+
+
+data[1:5,1:5]
 ```
+
+<div class="kable-table">
+
+X            Age_death   Age_onset   Alcohol_abuse   Brain_ph
+----------  ----------  ----------  --------------  ---------
+GSM123182           41          21               4       6.60
+GSM123183           51          23               3       6.67
+GSM123184           29          17               5       6.70
+GSM123185           45          16               5       6.03
+GSM123186           45          35              NA       6.35
+
+</div>
+
 
 
 ```r
@@ -89,4 +106,4 @@ names(data)
 ```
 
 ## Exercise
-1. Define the type of each variable in our data set. 
+1. Define the type of each variable in our data set.

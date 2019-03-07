@@ -16,17 +16,18 @@ mathjax: true
 {:toc}
 
 ---
+When the interest lies in the relationship between two or more variables, we are interested in the association of those variables. The way that this association is measured depends on the type of variables we are testing.
 
-When we are interested in the relationship between two or more variables, we are interested in its association. How we measure this association depends on the type of variables we are testing.
-
-When we are interested in the relationship among two numerical variables, one can use a correlation. If we want between one categorical and one numerical, we can use ANOVA or a (general) linear model. When we have 2 variables that are categorical, we can use a Chi-squared test. 
+When we are interested in the relationship between two numerical variables, one can use a correlation. If we want between one categorical and one numerical, we can use ANOVA or a (general) linear model. When we have 2 variables that are categorical, we can use a Chi-squared test. 
 
 ## Correlation
-If we are interested in how two numerical variables are influencing on each other, we can use correlation. We can use linear (Pearson) correlation (it assumes that both variables are normally distributed). If at least one of the variables is not Normal, we should use Spearman Correlation.
-Both correlations vary from -1 to 1, meaning that the closer to 0 it is the less correlated the variables are, and the closest to the extremes, the more correlated it is. Having a correlation of +1 means that they are perfectly positively correlated (if one goes up, the other will go up on the same proportion, or if one goes down, the other will go down in the same proportion). Having a correlation of -1 means that they are perfectly negatively correlated (if one goes up, the other will go down on the same proportion, or if one goes down, the other will go up in the same proportion).
+If we are interested in how two numerical variables are influencing on each other, we can use correlation. We can use linear Pearson, Spearman or Kendall correlation. 
+All correlations vary from -1 to 1, meaning that the closer to 0 it is the less correlated the variables are, and the closest to the extremes, the more correlated it is. Having a correlation of +1 means that they are perfectly positively correlated (if one goes up, the other will go up on the same proportion, or if one goes down, the other will go down in the same proportion). Having a correlation of -1 means that they are perfectly negatively correlated (if one goes up, the other will go down on the same proportion, or if one goes down, the other will go up in the same proportion).
+Pearson correlation measures the **linear** relationship of two variables, Spearman and Kendall are non-parametric correlations, and measure the rank correlation. 
 To compute the correlation on R, we can use the function `cor(x, y, method = "spearman")` for Spearman correlation or `cor(x, y, method = "pearson")` for Pearson correlation.
 
 * Example 1. What is the correlation between the expression values for SOX9 and EFEMP1?
+
 
 
 ```r
@@ -37,7 +38,8 @@ plot(data$SOX9, data$EFEMP1,
      las = 1)
 ```
 
-![](figure-html/unnamed-chunk-56-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-76-1.png)<!-- -->
+
 
 ```r
 cor(data$SOX9, data$EFEMP1)
@@ -47,6 +49,7 @@ cor(data$SOX9, data$EFEMP1)
 ## [1] 0.8451555
 ```
 
+
 ```r
 cor(data$SOX9, data$EFEMP1, method = 's')
 ```
@@ -54,11 +57,11 @@ cor(data$SOX9, data$EFEMP1, method = 's')
 ```
 ## [1] 0.8231095
 ```
-
 **Interpretation**: The correlation of the expression between the genes SOX9 and EFEMP1 is `0.8451555`, it means that the gene expression of both genes increases at the same time.
 
 
 * Example 2. How is the correlation between the expression values for GJA1 and DUSP4?
+
 
 
 ```r
@@ -69,6 +72,7 @@ cor(data$GJA1, data$DUSP4, method = "p")
 ## [1] -0.09835933
 ```
 
+
 ```r
 cor(data$GJA1, data$DUSP4, method = "s")
 ```
@@ -76,6 +80,7 @@ cor(data$GJA1, data$DUSP4, method = "s")
 ```
 ## [1] -0.1555791
 ```
+
 
 ```r
 plot(data$GJA1, data$DUSP4, 
@@ -85,12 +90,13 @@ plot(data$GJA1, data$DUSP4,
      pch = 16)
 ```
 
-![](figure-html/unnamed-chunk-57-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-81-1.png)<!-- -->
+
 
 **Interpretation**: The Spearman correlation between the genes GJA1 and DUSP4 is `-0.1555791`, it means that the correlation is really small.
 
 ## Contingency tables
-When we are interested in how two categorical variables are related to each other, we can use Fisher's exact test or Chi-Squared. What will make you choose your test is basically the limitations. The Chi-Squared test is less conservative than the Fisher test.
+When we are interested in how two categorical variables are related to each other, we can use **Fisher's exact test** or **Chi-Squared test**. What will make you choose your test is basically the limitations. The Chi-Squared test is less conservative than the Fisher test.
 
 Limitations for the Chi-Squared test usage:
 
@@ -101,6 +107,7 @@ Hypothesis:
 
 * $H_0$: Variable A and Variable B are independent.
 * $H_a$: Variable A and Variable B are not independent.
+
 The functions `fisher.test()` and `chisq.test()` compute this tests on R.
 
 * Example 1. Test if there an association of the Gender and having the disorder. Consider a confidence level of 95%.
@@ -151,13 +158,13 @@ chisq.test(.)
 ## X-squared = 2.9237, df = 1, p-value = 0.08729
 ```
 
-**Interpretation**: We don't have support to reject the null hypothesis, it means, we cannot reject the hypothesis that having Bipolar Disorder is a gender-related disorder.
+**Interpretation**: We don't have enough support to reject the null hypothesis, it means, we cannot reject the hypothesis that having Bipolar Disorder is a gender-related disorder.
 
 
 ## ANOVA
 The ANOVA basically splits the variability in variability inside the groups and variability between groups and compares both. The bigger the variability between the groups, the bigger is the evidence that there is a difference between the groups, it means: They have different means!
 
-Remember! If we want to test means the variable must follow a Normal distribution!
+**Remember! If we want to test means the variable must follow a Normal distribution!**
 
 Hypothesis:
 
@@ -166,6 +173,7 @@ Hypothesis:
 To use ANOVA on R we can use the function `aov()` or `lm()`.
 
 Example 1: Check if there is a difference in the gene expression of SOX9 depending on levels of alcohol abuse.
+
 
 
 ```r
@@ -182,6 +190,7 @@ shapiro.test(data$SOX9)
 ## data:  data$SOX9
 ## W = 0.96446, p-value = 0.07367
 ```
+
 
 ```r
 # Yep! Let's do the anova now.
@@ -203,6 +212,8 @@ fit1
 ## 1 observation deleted due to missingness
 ```
 
+
+
 ```r
 # Let's check the results
 summary(fit1)
@@ -215,6 +226,8 @@ summary(fit1)
 ## 1 observation deleted due to missingness
 ```
 
+
+
 ```r
 # A way to see if it makes sense is to plot the boxplot for each level.
 boxplot(data$SOX9 ~ data$Alcohol_abuse, 
@@ -222,7 +235,7 @@ boxplot(data$SOX9 ~ data$Alcohol_abuse,
         ylab = "SOX9", las = 1)
 ```
 
-![](figure-html/unnamed-chunk-61-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-88-1.png)<!-- -->
 
 ### Diagnostic Plots
 **We have to check if our model is well adjusted to our data.**
@@ -235,12 +248,13 @@ boxplot(data$SOX9 ~ data$Alcohol_abuse,
     * Who has to adapt to the data is the model, never the opposite
 
 
+
 ```r
 layout(matrix(c(1,2,3,4),2,2)) # optional layout
 plot(fit1, pch = 16, las = 1) # diagnostic plots
 ```
 
-![](figure-html/unnamed-chunk-62-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-89-1.png)<!-- -->
 
 1. What is the hypothesis?
     * $H_0: \mu_{alchool = 0} = \mu_{alchool = 1} = ... = \mu_{alchool = 5}$
@@ -260,11 +274,12 @@ In the case where at least one mean differs from the other(s), How do we know wh
 One option is to use the **Tukey's Method** to test all possible pairwise differences of means to determine if at least one difference is significantly different from 0;
 On R the function is ``TukeyHSD(aov())``.
 
-Another option is **Scheffé's Method** to test all possible contrasts at the same time, to see if at least one is significantly different from 0;
+Another option is **Scheffe's Method** to test all possible contrasts at the same time, to see if at least one is significantly different from 0;
 On R, ``scheffe.test(aov, "treatment")``.
 
 Another option is **Duncan**. It is much more conservative, and more powerful than the other, but it doesn't control the error rate correctly;
 On R, ``duncan.test(aov, "treatment")``.
+
 
 ```r
 # Tukey Honestly Significant Differences
@@ -296,11 +311,12 @@ TukeyHSD(fit1)
 ## 5-4 -0.011636580 -0.16190371 0.1386306 0.9999090
 ```
 
+
 ```r
 plot(TukeyHSD(fit1), las=1)
 ```
 
-![](figure-html/unnamed-chunk-63-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-91-1.png)<!-- -->
 
 ## Non-parametric ANOVA
 ### Kruskall Wallis
@@ -308,7 +324,8 @@ It is a one-way ANOVA, an extension of the Mann-Whitney test. It is used for **i
 
 To use this test in R we can use the function ``kruskal.test()``.
 
-Example: Test if the levels of the gene expression of the gene is different between case and controls.
+Example: Test if the levels of the gene expression of the gene SST is different between case and controls.
+
 
 
 ```r
@@ -322,6 +339,7 @@ shapiro.test(data$SST)
 ## data:  data$SST
 ## W = 0.90416, p-value = 0.0001656
 ```
+
 
 ```r
 kruskal.test(data$SST~data$Status)
@@ -340,7 +358,7 @@ boxplot(data$SST~data$Status, las = 1,
         col = c('coral','turquoise'))
 ```
 
-![](figure-html/unnamed-chunk-64-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-94-1.png)<!-- -->
 
 ### Friedmann
 It is a one-way ANOVA, an extension of the Wilcoxon test. It is used for **dependent samples**. You must have complete cases, it means, all groups have to have the same size.
@@ -372,6 +390,7 @@ On R we can use the function `glm()` for modelling, the family parameter gives y
 * Example 1: Suppose we are interested in how much, on average, the gene expression of one gene alters with the time after death.
 
 
+
 ```r
 cor(data$Post_morten_interval, data$CLDN10)
 ```
@@ -380,11 +399,14 @@ cor(data$Post_morten_interval, data$CLDN10)
 ## [1] -0.3810924
 ```
 
+
 ```r
-plot(data$Post_morten_interval, data$CLDN10, pch = 20)
+plot(data$Post_morten_interval, data$CLDN10, pch = 20, 
+     xlab = 'Post morten interval', ylab = 'CLDN10')
 ```
 
-![](figure-html/unnamed-chunk-65-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-96-1.png)<!-- -->
+
 
 
 ```r
@@ -424,6 +446,7 @@ summary(mod)
 ## Multiple R-squared:  0.1452,	Adjusted R-squared:  0.1307 
 ## F-statistic: 10.02 on 1 and 59 DF,  p-value: 0.002445
 ```
+
 
 ```r
 fit <- glm(data$CLDN10 ~ data$Post_morten_interval, family = "gaussian")
@@ -470,25 +493,24 @@ shapiro.test(fit$residuals)
 ## W = 0.97385, p-value = 0.2156
 ```
 
+
 ```r
 par(mfrow = c(2,2))
 
 plot(mod, which = c(1:4), add.smooth = FALSE, pch=20, las = 1)
 ```
 
-![](figure-html/unnamed-chunk-67-1.png)<!-- -->
+![](Material_Print_files/figure-html/unnamed-chunk-101-1.png)<!-- -->
 
 
-$\beta_0$ - It is the value predicted for the null effect of the CLDN10 gene expression, in this case, this value is 2.11. It means that, on average, the mean expression of CLDN10 is 2.11, when the post-Morten interval is 0.
 
-$\beta_1$ - It is the diminution (negative value) in the predicted CLDN10 gene expression for the increase on 1 unity on the Post Morten Interval, In this case, the diminution predicted on the gene expression, is of -0.002 for each 1 unity increased on the post-Morten interval.
+* $\beta_0$ - It is the value predicted for the null effect of the CLDN10 gene expression, in this case, this value is 2.11. It means that, on average, the mean expression of CLDN10 is 2.11, when the post-Morten interval is 0.
+* $\beta_1$ - It is the diminution (negative value) in the predicted CLDN10 gene expression for the increase on 1 unity on the Post Morten Interval, In this case, the diminution predicted on the gene expression, is of -0.002 for each 1 unity increased on the post-Morten interval.
 
 Question: Does it make sense that the gene expression decreases with the increase of the time?
-
 
 ## Exercises
 1. Is there a correlation between the levels of APOLD1 and TAC1?
 1. Test if there is an association of Suicide and Patients treated with lithium. And for patients treated with valproate?
 1. Test if there is a difference on the gene expression of the genes CLDN10, EFEMP1, PLSCR4, SOX9 in cases and controls. And male and females? Consider a model with gender and disease status. 
 Do not forget to make the diagnosis of the models. 
-
