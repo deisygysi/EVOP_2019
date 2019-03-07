@@ -20,15 +20,14 @@ The goal of this module is to introduce basic concepts of statistics and how to 
 
 
 # What is statistics?
-*Statistics* is the part of the scientific method that aims to collect, reduce, analyse and model real data. Statistics helps the analyse and presentation of data, and is also involved with the design of experiments, planning and defining how to collect the data in order to achieve results minimizing errors.
+*Statistics* is the part of the scientific method that aims to *collect*, *reduce*, *analyse* and *model real data*. Statistics helps the analyse and presentation of data, and is also involved with the design of experiments, planning and defining how to collect the data in order to achieve results *minimizing errors*.
 
 In the end, the statistical analysis should be able to tell us something concrete about the sample that we are studying and allow us to make inferences towards a population.
 
 ![](figure-html/unnamed-chunk-1-1.png)<!-- -->
 
-Statistics is normally divided into two main methods:
+Statistics is normally divided into two main parts:
 *Descriptive statistics* and *Inferential statistics*.
-
 The descriptive analysis gives an *overview* about the sample and the inferential analysis tests hypothesis about the population.
 
 Before we can understand **what** the data is revealing us, we have to be able to split the variables in its correct category. 
@@ -48,7 +47,7 @@ The variables can be classified into two main groups:
     - ii. **Continuous**
       - i.e. Temperature, Age.
 
-In this course, we will use as an example, the data from GSE$5388$, a data set containing data from patients with Bipolar Disorder. In our data-set we have some phenotype data, and the log transform of the gene expression of some genes.
+In this course, we will use as an example, the data from GSE$5388$, a data set containing data from controls and patients with Bipolar Disorder, some phenotypic information and the log transform of the gene expression of few genes.
 
 Link to the data: [Pheno_DE.csv](https://raw.githubusercontent.com/deisygysi/EVOP_2019/master/docs/Data/Pheno_DE.csv).
 ```r
