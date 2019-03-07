@@ -60,6 +60,7 @@ data = read.csv("./Pheno_DE.csv", header = T, row.names = 1)
 data[1:5,1:5]
 
 ```
+```
 ## X            Age_death   Age_onset   Alcohol_abuse   Brain_ph
 ## GSM123182           41          21               4       6.60
 ## GSM123183           51          23               3       6.67
