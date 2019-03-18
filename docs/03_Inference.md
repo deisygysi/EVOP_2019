@@ -335,7 +335,7 @@ bartlett.test(data$Age_death ~ data$Gender)
 To test if the mean of one variable is the same between two groups, one can use the t-test. You can also use the t-test to test if a certain sample mean is a particular number.
 
 Important: 
-* ** The t-test needs that the variable of interest follows a Normal distribution.**
+* **The t-test needs that the variable of interest follows a Normal distribution.**
 * If you want to compare means of more than 2 groups you should use ANOVA.
 * There are $4$ different t-tests, and we can use the function `t.test()` for all t.tests.
 
@@ -399,6 +399,7 @@ t.test(data$Age_death, mu = 40, data = data)
     
 **Interpretation**: The p-value is smaller than 0.05, we discard the null hypothesis and accept the alternative one, it means that the mean of Age is different than 40 years old.
 
+
 #### Test if two samples (with the same variance) have the same mean
 
 Two samples, with the same variance: You want to know if 2 groups with the same variance have the same mean.
@@ -427,41 +428,41 @@ shapiro.test(data$Age_death)
 
 ```r
 # It's Normal, great! We have now to test for the variance in the two groups. 
-var.test(Age_death ~ Status, data = data)
+var.test(Age_death ~ Gender, data = data)
 ```
 
 ```
 ## 
 ## 	F test to compare two variances
 ## 
-## data:  Age_death by Status
-## F = 2.1365, num df = 29, denom df = 30, p-value = 0.0427
+## data:  Age_death by Gender
+## F = 0.80358, num df = 20, denom df = 39, p-value = 0.6112
 ## alternative hypothesis: true ratio of variances is not equal to 1
 ## 95 percent confidence interval:
-##  1.025839 4.470182
+##  0.3868262 1.8419025
 ## sample estimates:
 ## ratio of variances 
-##           2.136475
+##          0.8035782
 ```
 
 ```r
 # We don't have support to say that they have different variances, perfect, let's follow!
 
-t.test(Age_death ~ Status, data = data, var.equal = T)
+t.test(Age_death ~ Gender, data = data, var.equal = T)
 ```
 
 ```
 ## 
 ## 	Two Sample t-test
 ## 
-## data:  Age_death by Status
-## t = 0.29654, df = 59, p-value = 0.7679
+## data:  Age_death by Gender
+## t = -0.22936, df = 59, p-value = 0.8194
 ## alternative hypothesis: true difference in means is not equal to 0
 ## 95 percent confidence interval:
-##  -3.992605  5.381852
+##  -5.498894  4.367941
 ## sample estimates:
-## mean in group Bipolar disorder  mean in group Healthy control 
-##                       44.53333                       43.83871
+## mean in group Female   mean in group Male 
+##             43.80952             44.37500
 ```
 
 1. What is the hypothesis?
@@ -472,10 +473,9 @@ t.test(Age_death ~ Status, data = data, var.equal = T)
 1. What is the significance level?
     * 0.05
 1. Results?
-    * p-value = `0.7678611`
+    * p-value = `0.8193845`
 
-**Interpretation**: The p-value is greater than 0.05, we cannot discard the null hypothesis, it means that we don't have enough support to say that the mean age is different among the two conditions.
-
+**Interpretation**: The p-value is greater than 0.05, we cannot discard the null hypothesis, it means that we don't have enough support to say that the mean age is different among the two genders
 ####  Test if two samples (with different variance) have the same mean
 
 Two samples, with different variance: You want to know if 2 groups with different variance have the same mean.
