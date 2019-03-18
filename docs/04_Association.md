@@ -321,11 +321,12 @@ plot(TukeyHSD(fit1), las=1)
 
 ## Non-parametric ANOVA
 ### Kruskall Wallis
+### Kruskall Wallis
 It is a one-way ANOVA, an extension of the Mann-Whitney test. It is used for **independent samples**.
 
 To use this test in R we can use the function ``kruskal.test()``.
 
-Example: Test if the levels of the gene expression of the gene SST is different between case and controls.
+Example: Test if the levels of the gene expression of the gene SST is different among different Alcohol abuse levels.
 
 
 
@@ -343,19 +344,19 @@ shapiro.test(data$SST)
 
 
 ```r
-kruskal.test(data$SST~data$Status)
+kruskal.test(data$SST~data$Alcohol_abuse)
 ```
 
 ```
 ## 
 ## 	Kruskal-Wallis rank sum test
 ## 
-## data:  data$SST by data$Status
-## Kruskal-Wallis chi-squared = 17.023, df = 1, p-value = 3.693e-05
+## data:  data$SST by data$Alcohol_abuse
+## Kruskal-Wallis chi-squared = 4.2373, df = 5, p-value = 0.5158
 ```
 
 ```r
-boxplot(data$SST~data$Status, las = 1,
+boxplot(data$SST~data$Alcohol_abuse, las = 1,
         col = c('coral','turquoise'))
 ```
 
