@@ -170,6 +170,7 @@ Hypothesis:
 
  * $H_0$: The means are the same in all treatments.
  * $H_a$: The means differ in at least one treatment.
+ 
 To use ANOVA on R we can use the function `aov()` or `lm()`.
 
 Example 1: Check if there is a difference in the gene expression of SOX9 depending on levels of alcohol abuse.
