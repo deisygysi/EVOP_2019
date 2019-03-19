@@ -252,7 +252,7 @@ axis (2, las = 2)
 
 ### Continuous Distributions
 
-If a variable cannot assume just integers numbers than its distribution is continuous. One continuous distribution doesn't have a probability associated to a certain point, but to a range. Some examples of continuous distributions are: **Uniform**, **Gamma**, **Normal**, **Exponential** etc.
+If a variable cannot assume just integers numbers than its distribution is continuous. A	continuous	distribution	doesn't	have	a	probability	associated	to	a	certain	point,	but	to	a	range. Some examples of continuous distributions are: **Uniform**, **Gamma**, **Normal**, **Exponential** etc.
 
 They can be simulated on R using `runif()`, `rexp()`, `rgamma()`, `rnorm()`.
 

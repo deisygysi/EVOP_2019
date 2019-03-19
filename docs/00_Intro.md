@@ -33,7 +33,7 @@ Statistics is normally divided into two main parts:
 *Descriptive statistics* and *Inferential statistics*.
 The descriptive analysis gives an *overview* about the sample and the inferential analysis tests hypothesis about the population.
 
-Before we can understand **what** the data is revealing us, we have to be able to split the variables in its correct category. 
+Before we can understand **what** the data is revealing us, we have to be able to split the variables	into	their	correct	categories. 
 
 ## Types of variables
 The variables can be classified into two main groups:

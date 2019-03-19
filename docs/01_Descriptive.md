@@ -20,7 +20,7 @@ mathjax: true
 
 
 ## Frequency Tables
-Frequency tables can be used for all kinds of variables, however, it's preferable to be used for the *categorical* ones. If you use it for numerical data, the variable's values have to be divided into *ranges*.
+Frequency tables can be used for all kinds of variables, however, it's preferable to use them for the *categorical* ones. If you use it for numerical data, the variable's values have to be divided into *ranges*.
 
 To get an *absolute frequency* table using R, 
 the easiest way is by using the function `table()`, 
@@ -552,7 +552,7 @@ rowMeans(data[,17:28], na.rm = T)
 ```
 
 ### Median
-The median is divides a variable in the **middle**, the function`median()` computes it in R. When dealing with variables that are not symmetrically distributed, it is important to describe the variable by its median.
+The	**median**	is	the	**middle** value	when	a	variable	is	sorted, the function`median()` computes it in R. When dealing with variables that are not symmetrically distributed, it is important to describe the variable by its median.
 
 
 ```r

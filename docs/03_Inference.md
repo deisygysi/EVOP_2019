@@ -74,7 +74,8 @@ The **p-value** is defined as the probability of obtaining a result equal to or 
 **Note: The p-value is a probability. It lies in the interval $(0,1)$.**
 
 ### Confidence Intervals
-Suppose we want to estimate an actual population mean. However, we cannot compute the population mean, unless we have the population. However, we have a random sample from a population. From that we have a **range where the real mean is, this range is called Confidence Interval**.
+
+Suppose we want to estimate an actual population mean. However, we cannot compute the population mean, unless we have the population. However, we have a random sample from the population. From that we can compute a **range within which the real mean lies** (with some degree of confidence), this range is called **Confidence Interval**. 
 
 mean - value < $\mu$ < mean + value
 
@@ -140,9 +141,9 @@ abline(h=mean(normal), lwd= 2, lty=2, col= "purple")
 ![](figure-html/unnamed-chunk-56-1.png)<!-- -->
 
 ### Testing normality
-Tests for normality are mainly used to check if a particular **variable follows a Normal distribution**. It is useful mainly because the **parametric tests require normality**.
+Tests for normality are mainly used to check if a particular **variable follows a Normal distribution**. It is useful mainly because the **parametric tests require normality**. Parametric tests assumes that there are a set of parameters that can describe the variable, it means, the variable has a known distribution.
 
-A good test is the Shapiro Wilks test, on R can be used by the function `shapiro.test()`.
+A good test is the Shapiro Wilks test, on `R` can be used by the function `shapiro.test()`.
 
 **Hypothesis:**
 
@@ -162,7 +163,7 @@ shapiro.test(data$Age_death)
 
 ```
 ## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  data$Age_death
 ## W = 0.98884, p-value = 0.8531
@@ -217,7 +218,7 @@ shapiro.test(data$Age_death)
 
 ```
 ## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  data$Age_death
 ## W = 0.98884, p-value = 0.8531
@@ -231,7 +232,7 @@ var.test(data$Age_death[data$Status == 'Healthy control'],
 
 ```
 ## 
-## 	F test to compare two variances
+##  F test to compare two variances
 ## 
 ## data:  data$Age_death[data$Status == "Healthy control"] and data$Age_death[data$Status != "Healthy control"]
 ## F = 0.46806, num df = 30, denom df = 29, p-value = 0.0427
@@ -267,7 +268,7 @@ shapiro.test(data$Age_death[data$Gender == 'Female'])
 
 ```
 ## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  data$Age_death[data$Gender == "Female"]
 ## W = 0.97069, p-value = 0.7483
@@ -280,7 +281,7 @@ shapiro.test(data$Age_death[data$Gender != 'Female'])
 
 ```
 ## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  data$Age_death[data$Gender != "Female"]
 ## W = 0.97729, p-value = 0.59
@@ -294,7 +295,7 @@ var.test(data$Age_death ~ data$Gender)
 
 ```
 ## 
-## 	F test to compare two variances
+##  F test to compare two variances
 ## 
 ## data:  data$Age_death by data$Gender
 ## F = 0.80358, num df = 20, denom df = 39, p-value = 0.6112
@@ -313,7 +314,7 @@ bartlett.test(data$Age_death ~ data$Gender)
 
 ```
 ## 
-## 	Bartlett test of homogeneity of variances
+##  Bartlett test of homogeneity of variances
 ## 
 ## data:  data$Age_death by data$Gender
 ## Bartlett's K-squared = 0.30237, df = 1, p-value = 0.5824
@@ -335,7 +336,7 @@ bartlett.test(data$Age_death ~ data$Gender)
 To test if the mean of one variable is the same between two groups, one can use the t-test. You can also use the t-test to test if a certain sample mean is a particular number.
 
 Important: 
-* **The t-test needs that the variable of interest follows a Normal distribution.**
+* **The t-test requires that the variable of interest follows a Normal distribution.**
 * If you want to compare means of more than 2 groups you should use ANOVA.
 * There are $4$ different t-tests, and we can use the function `t.test()` for all t.tests.
 
@@ -360,7 +361,7 @@ shapiro.test(data$Age_death)
 
 ```
 ## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  data$Age_death
 ## W = 0.98884, p-value = 0.8531
@@ -375,7 +376,7 @@ t.test(data$Age_death, mu = 40, data = data)
 
 ```
 ## 
-## 	One Sample t-test
+##  One Sample t-test
 ## 
 ## data:  data$Age_death
 ## t = 3.5971, df = 60, p-value = 0.000652
@@ -420,7 +421,7 @@ shapiro.test(data$Age_death)
 
 ```
 ## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  data$Age_death
 ## W = 0.98884, p-value = 0.8531
@@ -433,7 +434,7 @@ var.test(Age_death ~ Gender, data = data)
 
 ```
 ## 
-## 	F test to compare two variances
+##  F test to compare two variances
 ## 
 ## data:  Age_death by Gender
 ## F = 0.80358, num df = 20, denom df = 39, p-value = 0.6112
@@ -453,7 +454,7 @@ t.test(Age_death ~ Gender, data = data, var.equal = T)
 
 ```
 ## 
-## 	Two Sample t-test
+##  Two Sample t-test
 ## 
 ## data:  Age_death by Gender
 ## t = -0.22936, df = 59, p-value = 0.8194
@@ -497,7 +498,7 @@ shapiro.test(data$Duration_illness)
 
 ```
 ## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  data$Duration_illness
 ## W = 0.96852, p-value = 0.4995
@@ -511,7 +512,7 @@ var.test(data$Duration_illness ~ data$Therapy_Valproate, data = data)
 
 ```
 ## 
-## 	F test to compare two variances
+##  F test to compare two variances
 ## 
 ## data:  data$Duration_illness by data$Therapy_Valproate
 ## F = 0.34472, num df = 19, denom df = 9, p-value = 0.04848
@@ -532,7 +533,7 @@ t.test(data$Duration_illness ~ data$Therapy_Valproate, data = data, var.equal = 
 
 ```
 ## 
-## 	Welch Two Sample t-test
+##  Welch Two Sample t-test
 ## 
 ## data:  data$Duration_illness by data$Therapy_Valproate
 ## t = -1.2726, df = 12.198, p-value = 0.2269
@@ -591,7 +592,7 @@ shapiro.test(data$Therapy_Fluphenazine)
 
 ```
 ## 
-## 	Shapiro-Wilk normality test
+##  Shapiro-Wilk normality test
 ## 
 ## data:  data$Therapy_Fluphenazine
 ## W = 0.46829, p-value = 3.696e-09
@@ -604,7 +605,7 @@ wilcox.test(data$Therapy_Fluphenazine ~ data$Suicide, paired = F, exact = F)
 
 ```
 ## 
-## 	Wilcoxon rank sum test with continuity correction
+##  Wilcoxon rank sum test with continuity correction
 ## 
 ## data:  data$Therapy_Fluphenazine by data$Suicide
 ## W = 124, p-value = 0.2605
@@ -643,7 +644,7 @@ prop.test(table(data$Gender))
 
 ```
 ## 
-## 	1-sample proportions test with continuity correction
+##  1-sample proportions test with continuity correction
 ## 
 ## data:  table(data$Gender), null probability 0.5
 ## X-squared = 5.3115, df = 1, p-value = 0.02119

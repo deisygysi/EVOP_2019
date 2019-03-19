@@ -21,7 +21,7 @@ The multivariate analysis aims to reduce the dimensionality of datasets with mor
 ## Principal Component Analysis (PCA)
 Principal component analysis (PCA) is a statistical procedure that transforms a set of possibly correlated variables into a set of values of linearly uncorrelated variables, the principal components (PC). The number of PC is less or equal to the number of variables. The first PC has the largest variance and it decreases.
 
-PCA is sensible to the scale of variables. So it needs to normalize the data before running it.
+PCA is sensitive to the scale of variables. So it needs to normalize the data before running it.
 
 The PCA can be called on R using the functions: `prcomp()` and `princomp()`.
 
